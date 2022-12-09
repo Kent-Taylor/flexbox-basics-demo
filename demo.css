@@ -1,0 +1,171 @@
+.box-wrapper {
+    text-align: center;
+    border: 5px solid red;
+    height: 100vh;
+
+    /* OPENING */
+/*
+    - Requests for flexbox
+    - can anyone tell me the purpose of flexbox?
+
+    answer: it makes our web content flexible
+
+    Show html to show the parent child relationships
+    - The red border represents the box wrapper
+    - The blue border represents a box
+    - Then we have 3 items of content inside each box
+
+    - when we have identified the items that we want to be flexible,
+      we apply flexbox to those items PARENT
+
+    - Lets say we want to center these boxes on our page
+    - first, we need to identify the parent of the boxes.
+    - SO, if i'm centering the boxes, which class do i need to apply flexbox to?
+
+    answer: .box-wrapper
+    */
+    display: flex;
+    /*
+    - you can see that by default, this puts the children in a row which we will talk about in a minute.
+
+    */
+    justify-content: center;
+/*
+    - now i don't have to apply 200px of padding or margin around the children to make them centered horizontally.
+    - I can change my page width, and it always stays centered.
+    - What if we want it to be centered virtically?
+*/
+    align-items: center;
+/*
+    - what would you guess i do if i want the boxes to be in the dead center of the parent?
+    answer: do both
+*/
+    justify-content: center;
+    align-items: center;
+/*
+    - sometimes we don't want to have our boxes, or sections, horizontal. We can change the direction of flexbox to be virtical.
+*/
+    flex-direction: column;
+/*
+    -by default, flexbox does flex-direction: row.
+*/
+    flex-direction: row;
+/*
+    - lets get our boxes to have some even space between eachother:
+*/
+    justify-content: space-around;  /* space evenly around the main axis of the parent */
+
+    justify-content: space-between;  /*
+    - pushes everything along the axis, forcing everything from one end of the parent to the end
+    - so imagine these were sections on a page like a navigation bar and a footer, you want those to
+      be at the top and bottom edge, no white space above the nav or white space bellow the footer.
+*/
+
+    justify-content: space-evenly; /* even amount of space between the content and the edges of the parent */
+
+}
+
+
+.content-wrapper {
+/*
+ CHANGE BOX SIZE TO 100%
+*/
+
+/*
+    - what makes flexbox cool is i don't have to set a specific amount of margin between links or other content.
+    - because that will all change when the screen size changes. Flexbox will keep the same 'evenness' of the behavior
+    - you chose. It makes your content "flexible" between screen sizes.
+ */
+
+/* for example:
+    - what if we want to make a navigation bar with links?
+    - we usually want some space between them, but they will bleed off the page if we set their absolute positions
+    - and that space will need to change depending on the screen size
+*/
+    display: flex;
+/*
+    - What kind of behavior do we usually want to have when it comes to spacing between links?
+    Answer: even space
+*/
+    justify-content: space-evenly;
+
+/*
+    - If i wanted to push all of my links to the edges, what style would i apply?
+    :SHOW them screen sizing
+*/
+    justify-content: space-between;
+
+
+
+/*
+    - if we like the behavior of spacebetween but it's too close to the edges, we can dynamically
+    - give padding left and right to the parent, then flexbox will adhere to its space-between behavior but
+    - work with the padding as well.
+*/
+
+/* add padding to parent */
+    padding: 0px 100px;
+
+/*
+    - Notice, when i toggle padding, the "two" stays in the same place, preserving the behavior of flexbox
+    :SHOW them screen sizing both VIRTICAL and HORIZONTAL
+
+    - If you don't want your navigation links to sp super spread out on a ultra wide screen like i do,
+    - then you can just set a max width of your navigation wrapper, in our case: .content-wrapper: max-width: 1000px;
+*/
+}
+
+
+
+
+
+/* Ignore */
+
+.box {
+
+    width: 100px;
+    width: 100%;
+    height: 200px;
+    border: 2px solid blue;
+    color: white;
+    font-weight: 900;
+    font-size: 1em;
+}
+
+.content-wrapper div {
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid white; */
+}
+
+.box h1 {
+    font-size: 1em;
+}
+
+.box::first-letter {
+    text-transform: capitalize;
+}
+
+.one {
+    background: blue;
+}
+
+.two {
+    background: rgb(0, 174, 255);
+}
+
+.three {
+    background: rgb(0, 255, 247);
+}
+
+.four {
+    background: rgb(0, 255, 42);
+}
+
+.five {
+    background: rgb(255, 136, 0);
+}
+
+.six {
+    background: rgb(255, 0, 0);
+}
